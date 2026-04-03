@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户列表</title>
+    <style>
+        /* 全局基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 标题样式 */
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        /* 表格美化 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #409eff;
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        /* 动态按钮核心样式：hover放大 + 平滑过渡 */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #409eff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            /* 平滑动画 */
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(64, 158, 255, 0.2);
+        }
+
+        /* 鼠标悬浮放大效果 */
+        .btn:hover {
+            transform: scale(1.08);
+            background-color: #337ecc;
+            box-shadow: 0 5px 15px rgba(64, 158, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>用户列表</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>用户名</th>
+            <th>值</th>
+        </tr>
+        <!-- 后端循环渲染（完全保留你的语法） -->
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- 动态放大按钮 -->
+    <a href="/add" class="btn">添加用户</a>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html>
+<head><title>用户列表</title></head>
+<body>
+    <h1>用户列表</h1>
+    <table border="1">
+        <tr><th>ID</th><th>用户名</th><th>值</th></tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/add">添加用户</a>
+</body>
+</html>
+-->
